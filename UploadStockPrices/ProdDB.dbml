@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="magentatraders_prod" Class="ProdDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=tcp:g0kgvkdtnf.database.windows.net,1433;Initial Catalog=magentatraders_prod;Persist Security Info=True;User ID=derekpilger@g0kgvkdtnf" SettingsObjectName="UploadStockPrices.Properties.Settings" SettingsPropertyName="magentatraders_prodConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.MstUser" Member="ProdMstUsers">
+    <Type Name="ProdMstUser">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailAddress" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AspNetUserId" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Association Name="ProdMstUser_ProdTrnUserAlert" Member="ProdTrnUserAlerts" ThisKey="Id" OtherKey="UserId" Type="ProdTrnUserAlert" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TrnStockPrice" Member="ProdTrnStockPrices">
+    <Type Name="ProdTrnStockPrice">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SymbolId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Symbol" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="QuoteDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="OpenPrice" Type="System.Decimal" DbType="Decimal(18,8) NOT NULL" CanBeNull="false" />
+      <Column Name="HighPrice" Type="System.Decimal" DbType="Decimal(18,8) NOT NULL" CanBeNull="false" />
+      <Column Name="LowPrice" Type="System.Decimal" DbType="Decimal(18,8) NOT NULL" CanBeNull="false" />
+      <Column Name="ClosePrice" Type="System.Decimal" DbType="Decimal(18,8) NOT NULL" CanBeNull="false" />
+      <Column Name="Volume" Type="System.Decimal" DbType="Decimal(18,8) NOT NULL" CanBeNull="false" />
+      <Association Name="MstSymbol_ProdTrnStockPrice" Member="ProdMstSymbol" ThisKey="SymbolId" OtherKey="Id" Type="ProdMstSymbol" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TrnUserAlertSymbols" Member="ProdTrnUserAlertSymbols">
+    <Type Name="ProdTrnUserAlertSymbol">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserAlertId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Symbol" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Trend" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EncodedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="ProdTrnUserAlert_ProdTrnUserAlertSymbol" Member="ProdTrnUserAlert" ThisKey="UserAlertId" OtherKey="Id" Type="ProdTrnUserAlert" IsForeignKey="true" />
+      <Association Name="MstSymbol_ProdTrnUserAlertSymbol" Member="ProdMstSymbol" ThisKey="SymbolId" OtherKey="Id" Type="ProdMstSymbol" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TrnUserAlert" Member="ProdTrnUserAlerts">
+    <Type Name="ProdTrnUserAlert">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Strategy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="EncodedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="AlertVia" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolFilter" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolExchange" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SymbolUserFavoritesId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StrategyGrowthDecayRate" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="StrategyGrowthDecayTime" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StrategyFilter" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MACDFilter" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MACDCrossover" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MACDEMA" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MagentaChannelFilter" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MagentaChannelBegins" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MagentaChannelAGRADR" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="SeasonalityFilter" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SeasonalityWinLossPercent" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="SeasonalityGainLossPercent" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="AdditionalFilter" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AdditionalFilterPrice" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="AdditionalFilterVolume" Type="System.Decimal" DbType="Decimal(18,5) NOT NULL" CanBeNull="false" />
+      <Column Name="AdditionalFilterNoOfYears" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MagentaChannelDays" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MagentaChannelCorrelation30" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ProdTrnUserAlert_ProdTrnUserAlertSymbol" Member="ProdTrnUserAlertSymbols" ThisKey="Id" OtherKey="UserAlertId" Type="ProdTrnUserAlertSymbol" />
+      <Association Name="ProdMstUser_ProdTrnUserAlert" Member="ProdMstUser" ThisKey="UserId" OtherKey="Id" Type="ProdMstUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MstSymbol" Member="ProdMstSymbols">
+    <Type Name="ProdMstSymbol">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Symbol" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Exchange" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LatestQuoteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CalendarUpDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CalendarUpParticulars" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CalendarUpDelta" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="CalendarUpPercentage" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="CalendarDownDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CalendarDownParticulars" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CalendarDownDelta" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="CalendarDownPercentage" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="ClosePrice" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Volume" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="GrowthDecayRate" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="GrowthDecayRateW1" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="GrowthDecayRateW2" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="GrowthDecayRateW3" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="GrowthDecayRateM1" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="GrowthDecayRateM2" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="GrowthDecayRateM3" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="NoOfYears" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TrendNoOfDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WinLossCurrent30" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WinLossAverageCurrent30" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="WinLoss20" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WinLossAverage20" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="WinLoss40" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WinLossAverage40" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="WinLoss60" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WinLossAverage60" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="CorrelationCoefficient30" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="SeasonalityCorrelation" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="MACDTrendNoOfDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MACDGrowthDecayRate" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="EMATrendNoOfDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EMAGrowthDecayRate" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="EMAStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EMALinear" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="MACDLastCrossoverNoOfDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MACDPosition" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EMALastCrossoverNoOfDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nov7ClosePrice" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="Nov7NumberOfDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nov7CorrelationCoefficient" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Column Name="MACDLinear" Type="System.Decimal" DbType="Decimal(18,5)" CanBeNull="true" />
+      <Association Name="MstSymbol_ProdTrnStockPrice" Member="ProdTrnStockPrices" ThisKey="Id" OtherKey="SymbolId" Type="ProdTrnStockPrice" />
+      <Association Name="MstSymbol_ProdTrnUserAlertSymbol" Member="ProdTrnUserAlertSymbols" ThisKey="Id" OtherKey="SymbolId" Type="ProdTrnUserAlertSymbol" />
+    </Type>
+  </Table>
+</Database>

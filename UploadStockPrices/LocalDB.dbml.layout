@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LocalDB">
+  <DataContextMoniker Name="/LocalDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e8eda7fb-a059-47e9-a0f2-514f3e583d5b" absoluteBounds="0.75, 1.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LocalDBDataContext/LocalMstSymbol" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2149d59a-8448-45e4-8662-244e59f400f2" absoluteBounds="0.765, 1.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="05672e99-1ce4-4b9d-ad16-2816f43ab2d1" absoluteBounds="3.5, 1, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/LocalDBDataContext/LocalTrnStockPrice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d800447b-2b48-42ba-8a17-e1420a01ca24" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.16429768880208); (3.5 : 2.16429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LocalDBDataContext/LocalMstSymbol/MstSymbol_TrnStockPrice" />
+      <nodes>
+        <classShapeMoniker Id="e8eda7fb-a059-47e9-a0f2-514f3e583d5b" />
+        <classShapeMoniker Id="05672e99-1ce4-4b9d-ad16-2816f43ab2d1" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

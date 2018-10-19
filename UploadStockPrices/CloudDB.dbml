@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="magentatraders" Class="CloudDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=tcp:yn7obkepfl.database.windows.net,1433;Initial Catalog=magentatraders;Persist Security Info=True;User ID=easyfis@yn7obkepfl" SettingsObjectName="UploadStockPrices.Properties.Settings" SettingsPropertyName="magentatradersConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.MstSymbol" Member="CloudMstSymbols">
+    <Type Name="CloudMstSymbol">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Symbol" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Exchange" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="MstSymbol_TrnStockPrice" Member="CloudTrnStockPrices" Storage="_TrnStockPrices" ThisKey="Id" OtherKey="SymbolId" Type="CloudTrnStockPrice" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TrnStockPrice" Member="CloudTrnStockPrices">
+    <Type Name="CloudTrnStockPrice">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SymbolId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Symbol" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="QuoteDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="OpenPrice" Type="System.Decimal" DbType="Decimal(18,8) NOT NULL" CanBeNull="false" />
+      <Column Name="HighPrice" Type="System.Decimal" DbType="Decimal(18,8) NOT NULL" CanBeNull="false" />
+      <Column Name="LowPrice" Type="System.Decimal" DbType="Decimal(18,8) NOT NULL" CanBeNull="false" />
+      <Column Name="ClosePrice" Type="System.Decimal" DbType="Decimal(18,8) NOT NULL" CanBeNull="false" />
+      <Column Name="Volume" Type="System.Decimal" DbType="Decimal(18,8) NOT NULL" CanBeNull="false" />
+      <Association Name="MstSymbol_TrnStockPrice" Member="CloudMstSymbol" Storage="_MstSymbol" ThisKey="SymbolId" OtherKey="Id" Type="CloudMstSymbol" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

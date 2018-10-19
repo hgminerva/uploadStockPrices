@@ -1,0 +1,38 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="UploadStockPrices.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="magentatradersConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=localhost;Initial Catalog=magentatraders;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=localhost;Initial Catalog=magentatraders;Integrated Security=True</Value>
+    </Setting>
+    <Setting Name="magentatradersConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=tcp:yn7obkepfl.database.windows.net,1433;Initial Catalog=magentatraders;Persist Security Info=True;User ID=easyfis@yn7obkepfl;Password=@innosoft1&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=tcp:yn7obkepfl.database.windows.net,1433;Initial Catalog=magentatraders;Persist Security Info=True;User ID=easyfis@yn7obkepfl;Password=@innosoft1</Value>
+    </Setting>
+    <Setting Name="magentatradersConnectionString2" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=tcp:szxapf1nan.database.windows.net,1433;Initial Catalog=magentatraders;Persist Security Info=True;User ID=derekpilger@szxapf1nan;Password=Beth1993&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=tcp:szxapf1nan.database.windows.net,1433;Initial Catalog=magentatraders;Persist Security Info=True;User ID=derekpilger@szxapf1nan;Password=Beth1993</Value>
+    </Setting>
+    <Setting Name="magentatraders_prodConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=tcp:g0kgvkdtnf.database.windows.net,1433;Initial Catalog=magentatraders_prod;Persist Security Info=True;User ID=derekpilger@g0kgvkdtnf;Password=Beth1993&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=tcp:g0kgvkdtnf.database.windows.net,1433;Initial Catalog=magentatraders_prod;Persist Security Info=True;User ID=derekpilger@g0kgvkdtnf;Password=Beth1993</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
